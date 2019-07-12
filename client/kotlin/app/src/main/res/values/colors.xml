@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/commonColor</color>
+    <color name="colorPrimaryDark">@color/commonColor</color>
+    <color name="colorAccent">@color/commonColor</color>
+    <color name="commonBackground">@color/White</color>
+    <color name="commonTextViewBackground">@color/commonColor</color>
+    <color name="commonColor">#418DF9</color>
+
+    <color name="color_title_bg">#CCFFFFFF</color>
+    <color name="White">#FFFFFF</color>
+
+    <color name="common_title_text_color">#FFFFFF</color>
+    <color name="list_split_color">#E9ECF4</color>
+    <color name="common_text_color">#000000</color>
+
+</resources>
