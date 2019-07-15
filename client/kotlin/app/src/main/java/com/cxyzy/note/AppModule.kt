@@ -2,6 +2,7 @@ package com.cxyzy.note
 
 import com.cxyzy.note.db.AppDatabase
 import com.cxyzy.note.db.repository.NoteRepository
+import com.cxyzy.note.ext.provideOkHttpClient
 import com.cxyzy.note.network.HttpRepository
 import com.cxyzy.note.viewmodels.NoteViewModel
 import com.cxyzy.note.viewmodels.UserViewModel
@@ -15,6 +16,7 @@ val appModule = module {
     }
     factory { get<AppDatabase>().noteDao() }
     single { NoteRepository() }
+    single { provideOkHttpClient() }
     viewModel { NoteViewModel(get()) }
 
     single { HttpRepository }

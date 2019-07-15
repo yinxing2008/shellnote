@@ -1,14 +1,20 @@
 package com.cxyzy.note.network
 
+import com.cxyzy.note.OkHttpUrl.LOGIN_URL
 import com.cxyzy.note.network.request.*
 import com.cxyzy.note.network.response.*
 import kotlinx.coroutines.Deferred
+import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface Api {
-    @POST("user/login")
+
+    @POST(LOGIN_URL)
+    fun login(@Body req: LoginReq): Call<BaseResp<LoginResp>>
+
+    @POST(LOGIN_URL)
     fun loginAsync(@Body req: LoginReq): Deferred<BaseResp<LoginResp>>
 
     @GET("user/checkSyncState")
@@ -16,12 +22,6 @@ interface Api {
 
     @POST("note/downloadNotes")
     fun downloadNotesAsync(@Body req: DownloadNotesReq): Deferred<BaseResp<DownloadNotesResp>>
-
-    @POST("note/add_note_float")
-    fun addNoteAsync(@Body req: AddNoteReq): Deferred<BaseResp<AddNoteResp>>
-
-    @POST("note/update")
-    fun updateNoteAsync(@Body req: UpdateNoteReq): Deferred<BaseResp<UpdateNoteResp>>
 
     @POST("note/batchUpdate")
     fun batchUpdateNoteAsync(@Body req: BatchUpdatedNoteReq): Deferred<BaseResp<BatchUpdateNoteResp>>

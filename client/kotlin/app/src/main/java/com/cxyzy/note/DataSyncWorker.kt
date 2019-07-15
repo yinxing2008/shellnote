@@ -10,15 +10,12 @@ import com.cxyzy.note.ext.KoinInject.getFromKoin
 import com.cxyzy.note.network.HttpRepository
 import com.cxyzy.note.network.HttpRepository.downloadNotes
 import com.cxyzy.note.network.LoginManager
-import com.cxyzy.note.network.LoginManager.shouldRefreshToken
 import com.cxyzy.note.network.request.BatchUpdatedNoteReq
 import com.cxyzy.note.network.request.DownloadNotesReq
-import com.cxyzy.note.network.request.LoginReq
 import com.cxyzy.note.network.request.SimpleNoteReq
 import com.cxyzy.note.network.response.BaseResp
 import com.cxyzy.note.network.response.CheckSyncStateResp
 import com.cxyzy.note.network.response.DownloadNotesResp
-import com.cxyzy.note.utils.spUtils.UserSPUtil
 import com.cxyzy.note.utils.spUtils.UserSPUtil.getLocalLastFullSyncDateFromSP
 import com.cxyzy.note.utils.spUtils.UserSPUtil.getMaxLocalNoteUsnFromSP
 import com.cxyzy.note.utils.spUtils.UserSPUtil.getServerFullSyncBeforeFromSP
@@ -41,20 +38,6 @@ class DataSyncWorker(
         val database = getFromKoin<AppDatabase>()
         val noteDao = database.noteDao()
         if (LoginManager.isLoggedIn()) {
-            if (shouldRefreshToken()) {
-                val loginId = UserSPUtil.getLoginIdFromSP()
-                val password = UserSPUtil.getLoginPassFromSP()
-                if (loginId.isNullOrEmpty() || password.isNullOrEmpty()) {
-                    return@coroutineScope Result.failure()
-                }
-                val resp = HttpRepository.login(LoginReq(loginId, password))
-                if (resp.isSuccess()) {
-                    resp.data?.let {
-                        LoginManager.saveLoginInfo(loginId, password, it)
-                        syncData(noteDao)
-                    }
-                }
-            }
             syncData(noteDao)
         }
 
@@ -63,7 +46,7 @@ class DataSyncWorker(
 
     private suspend fun syncData(noteDao: NoteDao) {
         val resp = HttpRepository.checkSyncState()
-        if (resp.isSuccess()) {
+        if (resp != null && resp.isSuccess()) {
             resp.data?.let {
                 syncData(it, noteDao)
             }

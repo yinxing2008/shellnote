@@ -19,6 +19,10 @@ const val SHARED_SP_FILE = "shared_sp_file"
 //当token剩余有效期小于下面参数指定比例时，重新登陆获取token
 const val REFRESH_TOKEN_THRESHOLD = 0.2
 
+object OkHttpUrl {
+    const val BASE_URL = "https://192.168.11.35/notes/"
+    const val LOGIN_URL = "user/login"
+}
 
 object HttpCode {
     //token过期

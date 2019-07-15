@@ -8,8 +8,6 @@ class EmptyResp
 class LoginResp(
         //登陆token
         var token: String,
-        //登陆token有效时间长度(单位：秒)
-        var tokenValidSeconds: Long,
         //用户内部ID
         var userId: String
 )

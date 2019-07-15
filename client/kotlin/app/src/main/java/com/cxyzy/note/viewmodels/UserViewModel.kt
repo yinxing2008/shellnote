@@ -2,7 +2,6 @@ package com.cxyzy.note.viewmodels
 
 import com.cxyzy.note.events.RefreshEvent
 import com.cxyzy.note.events.SyncEvent
-import com.cxyzy.note.network.HttpRepository
 import com.cxyzy.note.network.LoginManager
 import com.cxyzy.note.network.response.BaseResp
 import com.cxyzy.note.network.response.EmptyResp
@@ -19,7 +18,7 @@ class UserViewModel() : BaseViewModel() {
 
         launchOnUITryCatch(
                 {
-                    LoginManager.login(loginId, password,
+                    LoginManager.loginAsync(loginId, password,
                             {
                                 EventBus.getDefault().post(SyncEvent())
                                 EventBus.getDefault().post(RefreshEvent())

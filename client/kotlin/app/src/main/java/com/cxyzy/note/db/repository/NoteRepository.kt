@@ -5,7 +5,6 @@ import androidx.paging.toLiveData
 import com.cxyzy.note.db.bean.Note
 import com.cxyzy.note.db.dao.NoteDao
 import com.cxyzy.note.ext.KoinInject.getFromKoin
-import com.cxyzy.note.network.LoginManager.getUserId
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.*

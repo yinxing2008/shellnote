@@ -61,7 +61,8 @@ class CoroutineCallAdapterFactory private constructor() : CallAdapter.Factory() 
 
                 override fun onResponse(call: Call<T>, response: Response<T>) {
                     if (response.isSuccessful) {
-                        deferred.complete(response.body()!!)
+                        response.body()?.let { deferred.complete(it) }
+                                ?: deferred.completeExceptionally(Exception("response body is null"))
                     } else {
                         deferred.completeExceptionally(HttpException(response))
                     }
@@ -70,6 +71,7 @@ class CoroutineCallAdapterFactory private constructor() : CallAdapter.Factory() 
 
             return deferred
         }
+
     }
 
     private class ResponseCallAdapter<T>(

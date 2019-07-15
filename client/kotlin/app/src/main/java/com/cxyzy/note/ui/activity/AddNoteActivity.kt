@@ -1,9 +1,7 @@
 package com.cxyzy.note.ui.activity
 
 import com.cxyzy.note.R
-import com.cxyzy.note.events.SyncEvent
 import kotlinx.android.synthetic.main.activity_edit_note.*
-import org.greenrobot.eventbus.EventBus
 
 class AddNoteActivity : BaseNoteActivity() {
     override fun initTitle() {

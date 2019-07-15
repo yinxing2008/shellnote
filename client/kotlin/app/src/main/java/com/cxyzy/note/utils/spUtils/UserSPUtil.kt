@@ -16,24 +16,27 @@ object UserSPUtil : BaseSPUtil() {
     fun getLoginRespFromSP(): LoginResp? {
         var value = getFromSP(PrefKeys.LOGIN_RESP)
         value?.let {
-            return gson.fromJson<LoginResp>(it, LoginResp::class.java)
+            return gson.fromJson(it, LoginResp::class.java)
         }
         return null
     }
+
     fun saveLoginRespInSP(loginId: LoginResp) {
         checkUserIdInSP()
         saveInSP(PrefKeys.LOGIN_RESP, gson.toJson(loginId))
         saveInSP(PrefKeys.LOGIN_TIME, Date().time)
     }
+
     fun delLoginRespInSP() = delInSP(PrefKeys.LOGIN_RESP)
 
-    fun getLoginTimeFromSP() = getFromSP(PrefKeys.LOGIN_TIME,0L)
+    fun getLoginTimeFromSP() = getFromSP(PrefKeys.LOGIN_TIME, 0L)
 
     fun getLoginIdFromSP() = getFromSP(PrefKeys.LOGIN_ID)
     fun saveLoginIdInSP(loginId: String) {
         checkUserIdInSP()
         saveInSP(PrefKeys.LOGIN_ID, loginId)
     }
+
     fun delLoginIdInSP() = delInSP(PrefKeys.LOGIN_ID)
 
 
@@ -42,6 +45,7 @@ object UserSPUtil : BaseSPUtil() {
         checkUserIdInSP()
         saveInSP(PrefKeys.LOGIN_PASS, loginPass)
     }
+
     fun delLoginPassInSP() = delInSP(PrefKeys.LOGIN_PASS)
 
     private fun checkUserIdInSP() {
