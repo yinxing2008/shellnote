@@ -1,7 +1,6 @@
 package com.cxyzy.note.network
 
 import com.cxyzy.note.OkHttpUrl.BASE_URL
-import com.cxyzy.note.ext.CoroutineCallAdapterFactory
 import com.cxyzy.note.ext.KoinInject
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -15,7 +14,6 @@ open class BaseHttpRepository {
         Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(okHttpClient)
-//                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
                 .build()
                 .create(Api::class.java)
