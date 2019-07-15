@@ -1,6 +1,7 @@
 package com.cxyzy.note
 
 object OkHttpUrl {
+    //TODO: ip地址需要根据实际情况修改
     const val BASE_URL = "https://192.168.11.35/notes/"
     const val LOGIN_URL = "user/login"
 }
