@@ -1,5 +1,10 @@
 package com.cxyzy.note
 
+object OkHttpUrl {
+    const val BASE_URL = "https://192.168.11.35/notes/"
+    const val LOGIN_URL = "user/login"
+}
+
 const val BEARER = "Bearer"
 const val HTTP_HEADER_AUTH = "Authorization"
 const val RESP_SUCCESS = 0
@@ -10,19 +15,10 @@ const val MAX_DOWNLOAD_COUNT_PER_REQUEST = 50
 const val DB_FIELD_TRUE = 1
 const val DB_FIELD_FALSE = 0
 
-
 const val USER_SP_FILE_PREFIX = "user_sp_"
 const val USER_DB_NAME_PREFIX = "user_note_"
 //用户登陆前记录相关信息的SP文件
 const val SHARED_SP_FILE = "shared_sp_file"
-
-//当token剩余有效期小于下面参数指定比例时，重新登陆获取token
-const val REFRESH_TOKEN_THRESHOLD = 0.2
-
-object OkHttpUrl {
-    const val BASE_URL = "https://192.168.11.35/notes/"
-    const val LOGIN_URL = "user/login"
-}
 
 object HttpCode {
     //token过期
