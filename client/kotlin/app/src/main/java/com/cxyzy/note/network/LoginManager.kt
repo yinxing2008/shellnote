@@ -23,14 +23,14 @@ object LoginManager {
     fun saveLoginInfo(loginId: String, password: String, loginResp: LoginResp) {
         UserSPUtil.saveUserIdInSP(loginResp.userId)
         UserSPUtil.saveLoginIdInSP(loginId)
-        UserSPUtil.saveLoginPassInSP(EncryptUtil.AESEncode(ENCRYPT_KEY, password))
+        UserSPUtil.saveLoginPassInSP( password)
         UserSPUtil.saveLoginRespInSP(loginResp)
     }
 
     fun login(onSuccess: ((resp: LoginResp) -> Unit)? = null,
               onFailure: ((resp: BaseResp<EmptyResp>) -> Unit)? = null) {
         val loginId = getLoginIdFromSP()
-        val password = EncryptUtil.AESDncode(ENCRYPT_KEY, getLoginPassFromSP())
+        val password = getLoginPassFromSP()
         if (loginId.isNullOrEmpty() || password.isNullOrEmpty()) {
             return
         }
@@ -47,7 +47,7 @@ object LoginManager {
     }
 
     suspend fun loginAsync(loginId: String = getLoginIdFromSP() ?: "",
-                           password: String = EncryptUtil.AESDncode(ENCRYPT_KEY, getLoginPassFromSP())
+                           password: String = getLoginPassFromSP()
                                    ?: "",
                            onSuccess: ((resp: LoginResp) -> Unit)? = null,
                            onFailure: ((resp: BaseResp<EmptyResp>) -> Unit)? = null) {
