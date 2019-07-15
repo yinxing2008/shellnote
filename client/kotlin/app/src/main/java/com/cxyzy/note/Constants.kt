@@ -21,6 +21,8 @@ const val USER_DB_NAME_PREFIX = "user_note_"
 //用户登陆前记录相关信息的SP文件
 const val SHARED_SP_FILE = "shared_sp_file"
 
+const val ENCRYPT_KEY = "test_key"
+
 object HttpCode {
     //token过期
     const val TOKEN_EXPIRED = 401
