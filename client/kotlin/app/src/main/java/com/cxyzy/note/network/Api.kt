@@ -15,25 +15,24 @@ interface Api {
     fun login(@Body req: LoginReq): Call<BaseResp<LoginResp>>
 
     @POST(LOGIN_URL)
-    fun loginAsync(@Body req: LoginReq): Deferred<BaseResp<LoginResp>>
+    suspend fun loginAsync(@Body req: LoginReq): BaseResp<LoginResp>
 
     @GET("user/checkSyncState")
-    fun checkSyncStateAsync(): Deferred<BaseResp<CheckSyncStateResp>>
+    suspend fun checkSyncStateAsync(): BaseResp<CheckSyncStateResp>
 
     @POST("note/downloadNotes")
-    fun downloadNotesAsync(@Body req: DownloadNotesReq): Deferred<BaseResp<DownloadNotesResp>>
+    suspend fun downloadNotesAsync(@Body req: DownloadNotesReq): BaseResp<DownloadNotesResp>
 
     @POST("note/batchUpdate")
-    fun batchUpdateNoteAsync(@Body req: BatchUpdatedNoteReq): Deferred<BaseResp<BatchUpdateNoteResp>>
+    suspend fun batchUpdateNoteAsync(@Body req: BatchUpdatedNoteReq): BaseResp<BatchUpdateNoteResp>
 
     @POST("note/recoverFromTrash")
-    fun recoverNoteFromTrashAsync(@Body req: UpdateNoteReq): Deferred<BaseResp<UpdateNoteResp>>
+    suspend fun recoverNoteFromTrashAsync(@Body req: UpdateNoteReq): BaseResp<UpdateNoteResp>
 
     @POST("note/del")
-    fun delNoteAsync(@Body req: DelNoteReq): Deferred<BaseResp<EmptyResp>>
+    suspend fun delNoteAsync(@Body req: DelNoteReq): BaseResp<EmptyResp>
 
     @POST("note/trash")
-    fun trashNoteAsync(@Body req: TrashNoteReq): Deferred<BaseResp<EmptyResp>>
-
+    suspend fun trashNoteAsync(@Body req: TrashNoteReq): BaseResp<EmptyResp>
 
 }

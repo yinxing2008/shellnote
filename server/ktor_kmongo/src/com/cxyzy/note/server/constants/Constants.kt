@@ -7,7 +7,7 @@ object CommonConstants {
     const val maxCountPerRequest = 50
     const val SUCCESS = 0
     //登陆token有效时间长度(单位：秒)
-    const val TOKEN_VALID_SECONDS = 3600*24*10L
+    const val TOKEN_VALID_SECONDS = 10//3600*24*10L
 }
 
 object UserConstants {

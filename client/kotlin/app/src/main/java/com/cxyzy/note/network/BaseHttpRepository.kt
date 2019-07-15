@@ -15,7 +15,7 @@ open class BaseHttpRepository {
         Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(okHttpClient)
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
+//                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
                 .build()
                 .create(Api::class.java)
