@@ -24,17 +24,17 @@ class MainActivity : BaseActivity<NoteViewModel>() {
     override fun initViews() {
         val fragments = ArrayList<Fragment>()
 
-        val favoritesFragment = ListNoteFragment()
+        val listNoteFragment = ListNoteFragment()
         var bundle = Bundle()
         bundle.putString("title", getString(R.string.notes))
-        favoritesFragment.arguments = bundle
+        listNoteFragment.arguments = bundle
 
         val mineFragment = MineFragment()
         bundle = Bundle()
         bundle.putString("title", getString(R.string.mine))
         mineFragment.arguments = bundle
 
-        fragments.add(favoritesFragment)
+        fragments.add(listNoteFragment)
         fragments.add(mineFragment)
 
         viewPager.adapter = object : FragmentStateAdapter(this) {
