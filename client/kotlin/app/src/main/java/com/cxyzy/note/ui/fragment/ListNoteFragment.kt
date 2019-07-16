@@ -2,8 +2,8 @@ package com.cxyzy.note.ui.fragment
 
 import android.content.Intent
 import androidx.lifecycle.Observer
+import com.cxyzy.kt.utils.toast
 import com.cxyzy.note.ExtraKey.KEY_NOTE
-import com.cxyzy.note.R
 import com.cxyzy.note.events.BaseEvent
 import com.cxyzy.note.events.RefreshEvent
 import com.cxyzy.note.events.SyncEvent
@@ -12,6 +12,7 @@ import com.cxyzy.note.ui.activity.AddNoteActivity
 import com.cxyzy.note.ui.activity.EditNoteActivity
 import com.cxyzy.note.ui.adapter.NoteAdapter
 import com.cxyzy.note.ui.base.BaseFragment
+import com.cxyzy.note.utils.AesCryptUtil
 import com.cxyzy.note.utils.setVisibility
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_note.*
@@ -20,10 +21,11 @@ import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import org.koin.android.viewmodel.ext.android.getViewModel
 
+
 class ListNoteFragment : BaseFragment<NoteViewModel>() {
 
     override fun viewModel(): NoteViewModel = getViewModel()
-    override fun layoutId(): Int = R.layout.fragment_note
+    override fun layoutId(): Int = com.cxyzy.note.R.layout.fragment_note
 
     override fun initListeners() {
         addNoteIv.setOnClickListener {
@@ -70,6 +72,10 @@ class ListNoteFragment : BaseFragment<NoteViewModel>() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: BaseEvent) {
         if (event is RefreshEvent) {
+            val encryptedStr = AesCryptUtil.encrypt("123456","程序园中猿的多彩生活")
+            toast(encryptedStr)
+            val decryptedStr = AesCryptUtil.decrypt("123456",encryptedStr)
+            toast(decryptedStr)
             refreshUI()
         }
     }

@@ -38,7 +38,7 @@ class MainActivity : BaseActivity<NoteViewModel>() {
         fragments.add(mineFragment)
 
         viewPager.adapter = object : FragmentStateAdapter(this) {
-            override fun getItem(position: Int): Fragment {
+            override fun createFragment(position: Int): Fragment {
                 return fragments[position]
             }
 
