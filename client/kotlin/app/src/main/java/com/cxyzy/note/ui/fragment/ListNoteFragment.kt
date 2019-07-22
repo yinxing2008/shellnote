@@ -2,7 +2,6 @@ package com.cxyzy.note.ui.fragment
 
 import android.content.Intent
 import androidx.lifecycle.Observer
-import com.cxyzy.kt.utils.toast
 import com.cxyzy.note.ExtraKey.KEY_NOTE
 import com.cxyzy.note.events.BaseEvent
 import com.cxyzy.note.events.RefreshEvent
@@ -12,7 +11,6 @@ import com.cxyzy.note.ui.activity.AddNoteActivity
 import com.cxyzy.note.ui.activity.EditNoteActivity
 import com.cxyzy.note.ui.adapter.NoteAdapter
 import com.cxyzy.note.ui.base.BaseFragment
-import com.cxyzy.note.utils.AesCryptUtil
 import com.cxyzy.note.utils.setVisibility
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_note.*
@@ -72,10 +70,6 @@ class ListNoteFragment : BaseFragment<NoteViewModel>() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: BaseEvent) {
         if (event is RefreshEvent) {
-            val encryptedStr = AesCryptUtil.encrypt("123456","程序园中猿的多彩生活")
-            toast(encryptedStr)
-            val decryptedStr = AesCryptUtil.decrypt("123456",encryptedStr)
-            toast(decryptedStr)
             refreshUI()
         }
     }

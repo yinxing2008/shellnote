@@ -9,7 +9,7 @@ import com.cxyzy.note.utils.spUtils.UserSPUtil.delLoginRespInSP
 import com.cxyzy.note.utils.spUtils.UserSPUtil.delUserIdInSP
 import org.greenrobot.eventbus.EventBus
 
-class UserViewModel() : BaseViewModel() {
+class UserViewModel : BaseViewModel() {
     fun login(loginId: String,
               password: String,
               onSuccess: (() -> Unit)? = null,

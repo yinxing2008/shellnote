@@ -3,7 +3,6 @@ package com.cxyzy.note.network
 import com.cxyzy.note.OkHttpUrl.LOGIN_URL
 import com.cxyzy.note.network.request.*
 import com.cxyzy.note.network.response.*
-import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET

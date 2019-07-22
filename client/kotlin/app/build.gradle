@@ -90,5 +90,5 @@ dependencies {
     debugImplementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
     releaseImplementation "net.igenius:stetho-no-op:1.1"
     implementation 'com.github.cxyzy1:clearEditText:1.0.5'
-    implementation 'com.github.cxyzy1:kotlinUtils:1.0'
+    implementation 'com.github.cxyzy1:kotlinUtils:1.0.3'
 }

@@ -8,6 +8,4 @@ object UploadTask {
     }
 }
 
-class MyTask(localNote: Note) {
-
-}
+class MyTask(localNote: Note)

@@ -26,7 +26,7 @@ class TokenInterceptor : BaseInterceptor() {
         LoginManager.login(
                 onSuccess = {
                     val newRequest = replaceTokenInHeader(request, it.token)
-                    response?.close()
+                    response.close()
                     response = chain.proceed(newRequest)
                 }
         )
