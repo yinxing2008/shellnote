@@ -5,7 +5,7 @@ import com.cxyzy.note.network.request.LoginReq
 import com.cxyzy.note.network.response.BaseResp
 import com.cxyzy.note.network.response.EmptyResp
 import com.cxyzy.note.network.response.LoginResp
-import com.cxyzy.note.utils.AesCryptUtil
+import com.cxyzy.note.utils.EncryptUtils
 import com.cxyzy.note.utils.spUtils.UserSPUtil
 import com.cxyzy.note.utils.spUtils.UserSPUtil.getLoginIdFromSP
 import com.cxyzy.note.utils.spUtils.UserSPUtil.getLoginPassFromSP
@@ -22,7 +22,7 @@ object LoginManager {
     private fun saveLoginInfo(loginId: String, password: String, loginResp: LoginResp) {
         UserSPUtil.saveUserIdInSP(loginResp.userId)
         UserSPUtil.saveLoginIdInSP(loginId)
-        UserSPUtil.saveLoginPassInSP(AesCryptUtil.encrypt(ENCRYPT_PASSWORD, password))
+        UserSPUtil.saveLoginPassInSP(EncryptUtils.encrypt(ENCRYPT_PASSWORD, password))
         UserSPUtil.saveLoginRespInSP(loginResp)
     }
 
@@ -31,7 +31,7 @@ object LoginManager {
         val loginId = getLoginIdFromSP()
         var password = ""
         try {
-            password = AesCryptUtil.decrypt(ENCRYPT_PASSWORD, getLoginPassFromSP() ?: "")
+            password = EncryptUtils.decrypt(ENCRYPT_PASSWORD, getLoginPassFromSP() ?: "")
         } catch (e: Exception) {
         }
         if (loginId.isNullOrEmpty() || password.isNullOrEmpty()) {
@@ -50,7 +50,7 @@ object LoginManager {
     }
 
     suspend fun loginAsync(loginId: String = getLoginIdFromSP() ?: "",
-                           password: String = AesCryptUtil.decrypt(ENCRYPT_PASSWORD, getLoginPassFromSP()
+                           password: String = EncryptUtils.decrypt(ENCRYPT_PASSWORD, getLoginPassFromSP()
                                    ?: ""),
                            onSuccess: ((resp: LoginResp) -> Unit)? = null,
                            onFailure: ((resp: BaseResp<EmptyResp>) -> Unit)? = null) {

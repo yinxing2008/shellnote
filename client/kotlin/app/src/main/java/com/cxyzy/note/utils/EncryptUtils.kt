@@ -12,11 +12,11 @@ import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
 
 /**
- * AES 加密、解密算法
+ * AES encrypt and decrypt
  *
  * @author jerry
  */
-object AesCryptUtil {
+object EncryptUtils {
 
     private const val AES_MODE = "AES/CBC/PKCS7Padding"
     private const val CHARSET = "UTF-8"
