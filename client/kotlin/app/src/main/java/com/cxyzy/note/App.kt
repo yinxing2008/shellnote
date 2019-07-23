@@ -7,7 +7,6 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.cxyzy.note.events.BaseEvent
 import com.cxyzy.note.events.SyncEvent
-import com.cxyzy.note.utils.logger.initLogger
 import com.facebook.stetho.Stetho
 import com.facebook.stetho.Stetho.newInitializerBuilder
 import org.greenrobot.eventbus.EventBus
@@ -22,7 +21,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         context = this
-        initLogger(BuildConfig.DEBUG)
         startKoinMoudles()
         EventBus.getDefault().register(this)
         syncWithServer()

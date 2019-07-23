@@ -4,11 +4,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModel
-import com.cxyzy.note.utils.logger.loge
+import com.cxyzy.utils.LogUtils
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-open class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
+open class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope, LogUtils {
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main
     private val mLaunchManager: MutableList<Job> = mutableListOf()
@@ -44,10 +44,8 @@ open class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
             } catch (e: Throwable) {
                 if (e !is CancellationException || handleCancellationExceptionManually) {
                     catchBlock(e)
-                } else {
-                    throw e
                 }
-                loge(e)
+                error(e)
             } finally {
                 finallyBlock()
             }
