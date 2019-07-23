@@ -5,11 +5,11 @@ import com.cxyzy.note.network.request.LoginReq
 import com.cxyzy.note.network.response.BaseResp
 import com.cxyzy.note.network.response.EmptyResp
 import com.cxyzy.note.network.response.LoginResp
-import com.cxyzy.note.utils.EncryptUtils
 import com.cxyzy.note.utils.spUtils.UserSPUtil
 import com.cxyzy.note.utils.spUtils.UserSPUtil.getLoginIdFromSP
 import com.cxyzy.note.utils.spUtils.UserSPUtil.getLoginPassFromSP
 import com.cxyzy.note.utils.spUtils.UserSPUtil.getLoginRespFromSP
+import com.cxyzy.utils.EncryptUtils
 
 
 object LoginManager {
