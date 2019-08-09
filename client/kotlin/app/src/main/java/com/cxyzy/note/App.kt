@@ -21,7 +21,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         context = this
-        startKoinMoudles()
+        startKoinModules()
         EventBus.getDefault().register(this)
         syncWithServer()
         if (BuildConfig.DEBUG) {
@@ -34,7 +34,7 @@ class App : Application() {
     }
 
 
-    private fun startKoinMoudles() {
+    private fun startKoinModules() {
         startKoin {
             androidLogger()
             androidContext(this@App)
