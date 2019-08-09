@@ -33,7 +33,6 @@ class App : Application() {
         }
     }
 
-
     private fun startKoinModules() {
         startKoin {
             androidLogger()
