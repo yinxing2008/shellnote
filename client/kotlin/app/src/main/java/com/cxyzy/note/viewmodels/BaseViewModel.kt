@@ -24,7 +24,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope, LogUt
     }
 
     /**
-     * add_note_float launch task to [mLaunchManager]
+     * add launch task to [mLaunchManager]
      */
     private fun launchOnUI(block: suspend CoroutineScope.() -> Unit) {
         val job = launch { block() }
