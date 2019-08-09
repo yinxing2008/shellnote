@@ -6,7 +6,6 @@ import com.cxyzy.note.db.bean.Note
 import com.cxyzy.note.db.repository.NoteRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class NoteViewModel(private val noteRepository: NoteRepository) : BaseViewModel() {
     fun add(content: String,
@@ -21,7 +20,7 @@ class NoteViewModel(private val noteRepository: NoteRepository) : BaseViewModel(
                 },
                 {
                     onError?.invoke(it)
-                    Timber.e(it)
+                    error(it)
                 },
                 { onFinish?.invoke() },
                 true)

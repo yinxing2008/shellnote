@@ -71,9 +71,6 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.loggingInterceptorVersion"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
 
-    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
-    implementation "org.jetbrains.anko:anko-commons:$rootProject.ankoVersion"
-
     //Koin
     implementation "org.koin:koin-android:$rootProject.koinVersion"
     implementation "org.koin:koin-android-scope:$rootProject.koinVersion"

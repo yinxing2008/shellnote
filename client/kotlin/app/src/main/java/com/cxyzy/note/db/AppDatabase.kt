@@ -5,7 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.cxyzy.note.USER_DB_NAME_PREFIX
 import com.cxyzy.note.db.bean.Note
 import com.cxyzy.note.db.converters.Converters

@@ -4,8 +4,8 @@ import com.cxyzy.note.R
 import com.cxyzy.note.ui.base.BaseActivity
 import com.cxyzy.note.utils.KeyBoardUtil
 import com.cxyzy.note.viewmodels.UserViewModel
+import com.cxyzy.utils.ext.toast
 import kotlinx.android.synthetic.main.activity_login.*
-import org.jetbrains.anko.toast
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 class LoginActivity : BaseActivity<UserViewModel>() {
