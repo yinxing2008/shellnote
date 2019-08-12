@@ -40,7 +40,6 @@ class NoteViewModel(private val noteRepository: NoteRepository) : BaseViewModel(
     }
 
     fun getList(): LiveData<PagedList<Note>> {
-        val list = noteRepository.list()
-        return list
+        return noteRepository.list()
     }
 }
