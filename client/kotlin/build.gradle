@@ -33,7 +33,7 @@ buildscript {
         okhttpVersion = '3.9.1'
         loggingInterceptorVersion = '3.11.0'
         koinVersion = '2.0.0-rc-1'
-        kotlinUtilsVersion = '1.0.9'
+        kotlinUtilsVersion = '1.0.11'
     }
     repositories {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }

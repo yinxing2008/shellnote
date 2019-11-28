@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Shell Note</string>
+    <string name="app_name">云笔记</string>
     <string name="ok">OK</string>
-    <string name="trash">Trash</string>
-    <string name="add_note">Add Note</string>
-    <string name="edit_note">Edit Note</string>
+    <string name="trash">删除</string>
+    <string name="add_note">新增</string>
+    <string name="edit_note">编辑</string>
 
-    <string name="notes">Notes</string>
-    <string name="mine">Mine</string>
-    <string name="login">Login</string>
-    <string name="log_out">Log Out</string>
+    <string name="notes">笔记</string>
+    <string name="mine">我的</string>
+    <string name="login">登陆</string>
+    <string name="log_out">登出</string>
 </resources>
