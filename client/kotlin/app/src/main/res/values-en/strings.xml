@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CloudNote</string>
+    <string name="ok">OK</string>
+    <string name="trash">Del</string>
+    <string name="add_note">Add</string>
+    <string name="edit_note">Edit</string>
+
+    <string name="notes">Note</string>
+    <string name="mine">Mine</string>
+    <string name="login">Login</string>
+    <string name="log_out">Logout</string>
+</resources>
