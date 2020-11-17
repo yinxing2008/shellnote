@@ -45,6 +45,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        app:srcCompat="@drawable/add_note_float" />
+        android:src="@drawable/add_note_float" />
 
 </RelativeLayout>
