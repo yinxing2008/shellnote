@@ -17,7 +17,7 @@ Client should upload local changed too.
   1). do it when app startup
   2). when any changes happen
   3). when user manually refresh
-2. [Synchronization Diagram](https://www.processon.com/view/link/5fb250fc637689283f8d5afc)
+[Synchronization Diagram](https://www.processon.com/view/link/5fb250fc637689283f8d5afc)
 ![](https://upload-images.jianshu.io/upload_images/6169789-c1d4aacce32fd466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 3. Key Points
 - Retrofit+okHttp: fetch data from network
